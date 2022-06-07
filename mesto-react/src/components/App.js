@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import '../index.css';
 import Header from './Header';
 import Main from './Main';
@@ -7,10 +7,10 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 function App({isOpen}) {  
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState({});
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   function handleEditAvatarClick () {
     console.log("Avavtar");  
@@ -57,7 +57,6 @@ function App({isOpen}) {
         <PopupWithForm
           name="edit"
           title="Редактировать профиль"
-          submit="Сохранить"
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
         >
@@ -95,7 +94,6 @@ function App({isOpen}) {
         <PopupWithForm
           name="editAvatar"
           title="Обновить аватар"
-          submit="Сохранить"
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           >

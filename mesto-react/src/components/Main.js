@@ -1,20 +1,19 @@
-import avatarimage from '../image/avatar_image.jpg';
-import React from 'react';
+import {useEffect, useState} from 'react';
 import api from '../utils/Api';
 import Card from './Card';
 
 function Main ({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
-    const [userName, setUserName] = React.useState('');
-    const [userDescription, setUserDescription] = React.useState('');
-    const [userAvatar, setUserAvatar] = React.useState('');
-    const [cards, setCards] = React.useState([]);
+    const [userName, setUserName] = useState('');
+    const [userDescription, setUserDescription] = useState('');
+    const [userAvatar, setUserAvatar] = useState('');
+    const [cards, setCards] = useState([]);
 
     // create Error Api
     function errorApi(err){
         console.log(`Ошибка: ${err}`);
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         api.getUserInfo().then((userInfo) => {
             setUserName(userInfo.name);
             setUserDescription(userInfo.about);
