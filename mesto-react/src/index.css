@@ -44,6 +44,7 @@
 @import url(./blocks/elements/__count/elements__count.css);
 @import url(./blocks/popup/__title/_lowmargin/popup__title_lowmargin.css);
 @import url(./blocks/profile/__edit-avatar/profile__edit-avatar.css);
+@import url(./blocks/elements/__trash/_hidden/elements__trash_hidden.css);
 
 body {
   background-color: #000;
