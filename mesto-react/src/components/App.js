@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-import '../index.css';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -29,19 +28,17 @@ function App({isOpen}) {
       .then((userInfo)=>{
         setCurrentUser(userInfo)
       })
-      .catch((err) => {
-        errorApi(err);
-      });
-  },[])
+      .catch(errorApi)
+    }
+      ,[])
 
   useEffect(() => {
     api.getInitialCards().then((initialCards) => {
         setCards(initialCards);
     })
-    .catch((err) => {
-        errorApi(err);
-    });
-}, []);
+    .catch(errorApi)
+    }
+  ,[]);
 
   function handleEditAvatarClick () {
     console.log("Avatar");  
@@ -71,9 +68,7 @@ function App({isOpen}) {
                 state.map((c) => 
                     c._id === card._id ? newCard : c));
         })
-        .catch((err) => {
-            errorApi(err);
-        });
+        .catch(errorApi);
 }
 
 function handleCardDelete(cardId){
@@ -81,9 +76,7 @@ function handleCardDelete(cardId){
         .then(() => {
             setCards((cards) => cards.filter((card) => card._id !== cardId));
           })
-        .catch((err) => {
-            errorApi(err);
-        });
+        .catch(errorApi);
       };
 
   function handleUpdateUser (newUserInfo){
@@ -92,9 +85,7 @@ function handleCardDelete(cardId){
         setCurrentUser(data);
         closeAllPopups();
       })
-      .catch((err) => {
-        errorApi(err);
-      });
+      .catch(errorApi);
   }
 
   function handleUpdateAvatar (newAvatar){
@@ -103,9 +94,7 @@ function handleCardDelete(cardId){
         setCurrentUser(data);
         closeAllPopups();
       })
-      .catch((err) => {
-        errorApi(err);
-      });
+      .catch(errorApi);
   }
 
   function handleAddPlaceSubmit(card) {
@@ -114,9 +103,7 @@ function handleCardDelete(cardId){
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
-      .catch((err) => {
-        errorApi(err);
-      });
+      .catch(errorApi);
   }
   
   function closeAllPopups () {

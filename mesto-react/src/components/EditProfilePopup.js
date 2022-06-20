@@ -19,7 +19,7 @@ function EditProfilePopup ({isOpen, onClose, onUpdateUser}){
     useEffect(() => {
         setUserName(currentUser.name);
         setUserJob(currentUser.about);
-      }, [currentUser])
+      }, [currentUser,isOpen])
 
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
